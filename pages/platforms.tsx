@@ -14,53 +14,37 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const games = await mongodb.db().collection("games").find().toArray();
 
   const platforms = games.map((game) => {
-    return game.platform;
+    return game.platform.name;
   });
 
-  const filteredArray = platforms.filter(function (
-    element,
-    position,
-    previous
-  ) {
-    if (position !== 0) {
-      if (element.name !== previous[position - 1].name) {
-        return element;
-      }
-    }
+  const images = games.map((game) => {
+    return game.platform.url;
   });
+  const arrayOfImagesFiltred = Array.from(new Set(images));
+  const arrayOfplatformsFiltred = Array.from(new Set(platforms));
 
   return {
     props: {
-      platforms: filteredArray,
+      platforms: arrayOfplatformsFiltred,
+      images: arrayOfImagesFiltred,
     },
   };
 };
-export default function Platforms({ platforms }) {
+export default function Platforms({ platforms, images }) {
   return (
     <div>
       <Layout />
+      {images.map((image) => {
+        {
+          console.log(image);
+          <img src={`${image}`} />;
+        }
+      })}
       <div>
         {platforms.map((platform) => {
           return (
             <Link href={`/platforms/${platform}`}>
-              <h1>
-                {platform.name}
-                <p>
-                  {platform?.platform_logo_url ? (
-                    <img
-                      src={platform.platform_logo_url}
-                      style={{ height: "18rem" }}
-                      className="card-img-top"
-                    />
-                  ) : (
-                    <img
-                      src="..."
-                      style={{ height: "18rem" }}
-                      className="card-img-top"
-                    />
-                  )}
-                </p>
-              </h1>
+              <h1>{platform}</h1>
             </Link>
           );
         })}

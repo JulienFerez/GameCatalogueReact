@@ -22,8 +22,8 @@ export default function Games({ games }) {
         <div>
           {gamesJson.map((game) => {
             return (
-              <div style={{ maxWidth: "18rem" }}>
-                <div>
+              <div className="container" style={{ maxWidth: "18rem" }}>
+                <div className="item">
                   {game?.cover?.url ? (
                     <img src={game.cover.url} style={{ maxHeight: "18rem" }} />
                   ) : (
@@ -31,6 +31,7 @@ export default function Games({ games }) {
                   )}
                   <div>
                     <h5>{game.name}</h5>
+                    <button>Ajouter au panier</button>
                   </div>
                 </div>
               </div>

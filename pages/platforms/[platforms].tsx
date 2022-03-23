@@ -4,19 +4,23 @@ import { getDatabase } from "../../src/utils/database";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const mongodb = await getDatabase();
-
-  const games = await mongodb.db().collection("games").find().toArray();
-  const gamesString = JSON.stringify(games);
   const data = JSON.stringify(context.params.platforms);
-  console.log(data);
+  const games = await mongodb
+    .db()
+    .collection("games")
+    .find({ "platform.name": `${data}` })
+    .toArray();
+
+  console.log("slug", data);
+  console.log("sortie après la recherhce mongo", games);
+
   return {
     props: {
-      games: gamesString,
+      games: games,
     },
   };
 };
 export default function Games({ games }) {
-  const gamesJson = JSON.parse(games);
   return (
     <Layout>
       <div>toto</div>

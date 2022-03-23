@@ -15,10 +15,7 @@ export default function Home() {
         <Card.Img variant="top" style={{ width: "4rem" }} src="games.jpeg" />
         <Card.Body>
           <Card.Title>Liste des Jeux</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
+          <Card.Text></Card.Text>
           <Button variant="primary" href="/games">
             Voir tous les Jeux
           </Button>
@@ -33,12 +30,31 @@ export default function Home() {
         />
         <Card.Body>
           <Card.Title>Liste des Platforms</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
+          <Card.Text></Card.Text>
           <Button variant="primary" href="/platforms">
             Voir toutes les platforms
+          </Button>
+        </Card.Body>
+      </Card>
+
+      <Card style={{ width: "16rem" }}>
+        <Card.Img variant="top" style={{ width: "4rem" }} src="login.png" />
+        <Card.Body>
+          <Card.Title>LOGIN</Card.Title>
+          <Card.Text></Card.Text>
+          <Button variant="primary" href="#">
+            Se connecter
+          </Button>
+        </Card.Body>
+      </Card>
+
+      <Card style={{ width: "16rem" }}>
+        <Card.Img variant="top" style={{ width: "4rem" }} src="logout.jpeg" />
+        <Card.Body>
+          <Card.Title>LOGOUT</Card.Title>
+          <Card.Text></Card.Text>
+          <Button type="button" variant="primary" href="#">
+            Se déconnecter
           </Button>
         </Card.Body>
       </Card>
