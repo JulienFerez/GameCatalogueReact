@@ -3,52 +3,60 @@ import { getDatabase } from "../src/utils/database";
 import Link from "next/link";
 import Layout from "../components/layout";
 
-// import "dotenv/config";
-// export default function Page({ games }) {
-//   return <>{games}</>;
-// }
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const mongodb = await getDatabase();
-
-  const games = await mongodb.db().collection("games").find().toArray();
-
-  const platforms = games.map((game) => {
-    return game.platform.name;
+  const data = await mongodb.db().collection("games").find().toArray();
+  const platforms = data.map((element) => {
+    return element.platform;
+  });
+  const filteredArray = platforms.filter(function (element, index, before) {
+    if (index !== 0) {
+      if (element.name !== before[index - 1].name) {
+        return element;
+      }
+    }
   });
 
-  const images = games.map((game) => {
-    return game.platform.url;
-  });
-  const arrayOfImagesFiltred = Array.from(new Set(images));
-  const arrayOfplatformsFiltred = Array.from(new Set(platforms));
-
+  const [unique] = [filteredArray.splice(0, 9)];
   return {
     props: {
-      platforms: arrayOfplatformsFiltred,
-      images: arrayOfImagesFiltred,
+      platforms: unique,
     },
   };
 };
-export default function Platforms({ platforms, images }) {
+export default function Platforms({ platforms }: any) {
   return (
-    <div>
-      <Layout />
-      {images.map((image) => {
-        {
-          console.log(image);
-          <img src={`${image}`} />;
-        }
-      })}
-      <div>
-        {platforms.map((platform) => {
-          return (
-            <Link href={`/platforms/${platform}`}>
-              <h1>{platform}</h1>
-            </Link>
-          );
-        })}
+    <Layout>
+      <div className="container">
+        <div className="row">
+          {platforms.map((element: any, index: number) => {
+            return (
+              <Link key={index} href={`/platforms/${element.name}`}>
+                <div className="col-sm-8" style={{ width: "18rem" }}>
+                  <div className="card">
+                    {element?.platform_logo_url ? (
+                      <img
+                        src={element.platform_logo_url}
+                        style={{ height: "18rem", width: "18rem" }}
+                        className="card-img-top"
+                      />
+                    ) : (
+                      <img
+                        src="..."
+                        style={{ height: "18rem" }}
+                        className="card-img-top"
+                      />
+                    )}
+                    <div className="card-body">
+                      <h5 className="card-title">{element.name}</h5>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 }

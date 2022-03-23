@@ -28,6 +28,7 @@ body {
   flex-direction: column;
   align-items: center;
   border: solid;
+  text-align: center;
 }
 
 .container {
@@ -36,4 +37,10 @@ body {
 }
 .item {
   flex-direction: row;
+}
+
+.row {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }

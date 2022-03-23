@@ -5,6 +5,16 @@ import Link from "next/link";
 import Layout from "../components/layout";
 import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import React from "react";
+import { UserProvider } from "@auth0/nextjs-auth0";
+
+// export default function App({ Component, pageProps }) {
+//   return (
+//     <UserProvider>
+//       <Component {...pageProps} />
+//     </UserProvider>
+//   );
+// }
 
 export default function Home() {
   return (
@@ -42,7 +52,7 @@ export default function Home() {
         <Card.Body>
           <Card.Title>LOGIN</Card.Title>
           <Card.Text></Card.Text>
-          <Button variant="primary" href="#">
+          <Button variant="primary" href="/auth/login">
             Se connecter
           </Button>
         </Card.Body>
@@ -53,7 +63,7 @@ export default function Home() {
         <Card.Body>
           <Card.Title>LOGOUT</Card.Title>
           <Card.Text></Card.Text>
-          <Button type="button" variant="primary" href="#">
+          <Button type="button" variant="primary" href="/auth/logout">
             Se déconnecter
           </Button>
         </Card.Body>
