@@ -52,7 +52,7 @@ export default function Home() {
         <Card.Body>
           <Card.Title>LOGIN</Card.Title>
           <Card.Text></Card.Text>
-          <Button variant="primary" href="/auth/login">
+          <Button variant="primary" href="/api/auth/login">
             Se connecter
           </Button>
         </Card.Body>
@@ -63,7 +63,7 @@ export default function Home() {
         <Card.Body>
           <Card.Title>LOGOUT</Card.Title>
           <Card.Text></Card.Text>
-          <Button type="button" variant="primary" href="/auth/logout">
+          <Button type="button" variant="primary" href="/api/auth/logout">
             Se déconnecter
           </Button>
         </Card.Body>
