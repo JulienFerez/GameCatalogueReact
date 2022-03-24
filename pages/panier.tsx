@@ -36,6 +36,9 @@ export default function App() {
             <AddIcon fontSize="small" />
           </Button>
         </ButtonGroup>
+        <button>
+          <a href="/panier/remove">Supprimer Le panier</a>
+        </button>
       </div>
     </div>
   );

@@ -79,6 +79,17 @@ export default function Home() {
           </Button>
         </Card.Body>
       </Card>
+
+      <Card style={{ width: "16rem" }}>
+        <Card.Img variant="top" style={{ width: "4rem" }} src="panier.jpeg" />
+        <Card.Body>
+          <Card.Title>MON PANIER</Card.Title>
+          <Card.Text></Card.Text>
+          <Button type="button" variant="primary" href="/panier/add/index">
+            Voir Mon Panier
+          </Button>
+        </Card.Body>
+      </Card>
     </>
   );
 }

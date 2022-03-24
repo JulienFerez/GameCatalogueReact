@@ -21,6 +21,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 export default function Games({ games }) {
   const gamesJson = JSON.parse(games);
+
   return (
     <Layout>
       <div>
@@ -37,7 +38,9 @@ export default function Games({ games }) {
                   )}
                   <div>
                     <h5>{game.name}</h5>
-                    <button>Ajouter au panier</button>
+                    <button>
+                      <a href="/panier">Ajouter au panier</a>
+                    </button>
                   </div>
                 </div>
               </div>

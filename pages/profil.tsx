@@ -2,6 +2,10 @@ import React from "react";
 import { useUser } from "@auth0/nextjs-auth0";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Image from "next/image";
+import { getSession } from "@auth0/nextjs-auth0";
+
+// const session = getSession(req, res);
+// console.log(session);
 
 export default function Profile() {
   const { user, error, isLoading } = useUser();
@@ -20,3 +24,10 @@ export default function Profile() {
   );
 }
 export const getServerSideProps = withPageAuthRequired();
+function req(req: any, res: any) {
+  throw new Error("Function not implemented.");
+}
+
+function res(req: any, res: any) {
+  throw new Error("Function not implemented.");
+}
