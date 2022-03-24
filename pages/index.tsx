@@ -68,6 +68,17 @@ export default function Home() {
           </Button>
         </Card.Body>
       </Card>
+
+      <Card style={{ width: "16rem" }}>
+        <Card.Img variant="top" style={{ width: "4rem" }} src="profil.jpeg" />
+        <Card.Body>
+          <Card.Title>MON PROFIL</Card.Title>
+          <Card.Text></Card.Text>
+          <Button type="button" variant="primary" href="/profil">
+            Voir Mon Profil
+          </Button>
+        </Card.Body>
+      </Card>
     </>
   );
 }

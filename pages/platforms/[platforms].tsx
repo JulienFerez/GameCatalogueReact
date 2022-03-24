@@ -27,6 +27,7 @@ export default function Games({ games }) {
         <div>
           {gamesJson.map((game) => {
             return (
+              // eslint-disable-next-line react/jsx-key
               <div className="container" style={{ maxWidth: "18rem" }}>
                 <div className="item">
                   {game?.cover?.url ? (

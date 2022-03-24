@@ -1,4 +1,5 @@
 import { GetServerSideProps } from "next";
+import React from "react";
 import Layout from "../components/layout";
 import { getDatabase } from "../src/utils/database";
 
@@ -22,6 +23,7 @@ export default function Games({ games }) {
         <div>
           {gamesJson.map((game) => {
             return (
+              // eslint-disable-next-line react/jsx-key
               <div className="container" style={{ maxWidth: "18rem" }}>
                 <div className="item">
                   {game?.cover?.url ? (
@@ -31,7 +33,9 @@ export default function Games({ games }) {
                   )}
                   <div>
                     <h5>{game.name}</h5>
-                    <button>Ajouter au panier</button>
+                    <button>
+                      <a href="/panier">Ajouter au panier</a>
+                    </button>
                   </div>
                 </div>
               </div>

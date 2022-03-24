@@ -20,7 +20,9 @@
     "**/*.ts",
     "**/*.tsx",
     "pages/api/auth/[...auth0].ts",
-    "pages/api/auth/callback.js"
+    "pages/api/auth/callback.js",
+    "components/navbar.jsx",
+    "components/counters.jsx"
   ],
   "exclude": ["node_modules"]
 }
