@@ -33,7 +33,11 @@ export default function Games({ games }) {
                     <img src="..." style={{ maxHeight: "18rem" }} />
                   )}
                   <div>
-                    <h5>{game.name}</h5>
+                    <Link href={`details/${game.name}`}>
+                      <a>
+                        <h5>{game.name}</h5>
+                      </a>
+                    </Link>
                     <button>
                       <Link href={`/panier/add/${game.name}`}>
                         <a>Ajouter au panier</a>

@@ -13,7 +13,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     .insertOne({ "platform.name": `${context.params.game}` });
 
   const gameString = JSON.stringify(game);
-  console.log("gameString", gameString);
 
   const data = await mongodb.db().collection("basket").find().toArray();
   const dataArray = data.map((game) => {
@@ -37,6 +36,7 @@ export default function Games({ game, data }) {
     <Layout>
       <h1>Mon panier</h1>
       {game}
+
       <button>
         <Link href="/panier/remove">
           <a>Supprimer Le panier</a>

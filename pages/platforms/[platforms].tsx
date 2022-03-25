@@ -38,7 +38,11 @@ export default function Games({ games }) {
                     <img src="..." style={{ maxHeight: "18rem" }} />
                   )}
                   <div>
-                    <h5>{game.name}</h5>
+                    <Link href={`details/${game.name}`}>
+                      <a>
+                        <h5 className="display-5 fw-bolder">{game.name}</h5>
+                      </a>
+                    </Link>
                     <button>
                       <Link href="/panier">
                         <a>Ajouter au panier</a>

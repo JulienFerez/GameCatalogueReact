@@ -31,7 +31,6 @@ export default function Platforms({ platforms }: any) {
         <div className="row">
           {platforms.map((element: any, index: number) => {
             return (
-              // eslint-disable-next-line @next/next/link-passhref
               <Link key={index} href={`/platforms/${element.name}`}>
                 <a>
                   {" "}
