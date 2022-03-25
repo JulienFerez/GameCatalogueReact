@@ -1,4 +1,5 @@
 import { GetServerSideProps } from "next";
+import Link from "next/link";
 import React from "react";
 import Layout from "../components/layout";
 import { getDatabase } from "../src/utils/database";
@@ -34,7 +35,9 @@ export default function Games({ games }) {
                   <div>
                     <h5>{game.name}</h5>
                     <button>
-                      <a href={`/panier/add/${game.name}`}>Ajouter au panier</a>
+                      <Link href={`/panier/add/${game.name}`}>
+                        <a>Ajouter au panier</a>
+                      </Link>
                     </button>
                   </div>
                 </div>

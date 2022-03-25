@@ -33,26 +33,29 @@ export default function Platforms({ platforms }: any) {
             return (
               // eslint-disable-next-line @next/next/link-passhref
               <Link key={index} href={`/platforms/${element.name}`}>
-                <div className="col-sm-8" style={{ width: "18rem" }}>
-                  <div className="card">
-                    {element?.platform_logo_url ? (
-                      <img
-                        src={element.platform_logo_url}
-                        style={{ height: "18rem", width: "18rem" }}
-                        className="card-img-top"
-                      />
-                    ) : (
-                      <img
-                        src="..."
-                        style={{ height: "18rem" }}
-                        className="card-img-top"
-                      />
-                    )}
-                    <div className="card-body">
-                      <h5 className="card-title">{element.name}</h5>
+                <a>
+                  {" "}
+                  <div className="col-sm-8" style={{ width: "18rem" }}>
+                    <div className="card">
+                      {element?.platform_logo_url ? (
+                        <img
+                          src={element.platform_logo_url}
+                          style={{ height: "18rem", width: "18rem" }}
+                          className="card-img-top"
+                        />
+                      ) : (
+                        <img
+                          src="..."
+                          style={{ height: "18rem" }}
+                          className="card-img-top"
+                        />
+                      )}
+                      <div className="card-body">
+                        <h5 className="card-title">{element.name}</h5>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </a>
               </Link>
             );
           })}

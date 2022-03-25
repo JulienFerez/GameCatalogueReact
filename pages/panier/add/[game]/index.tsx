@@ -1,5 +1,6 @@
 import { TocTwoTone } from "@material-ui/icons";
 import { GetServerSideProps } from "next";
+import Link from "next/link";
 import Layout from "../../../../components/layout";
 import { getDatabase } from "../../../../src/utils/database";
 
@@ -34,10 +35,12 @@ export default function Games({ game, data }) {
 
   return (
     <Layout>
-      <h1>Mon putain de panier</h1>
+      <h1>Mon panier</h1>
       {game}
       <button>
-        <a href="/panier/remove">Supprimer Le panier</a>
+        <Link href="/panier/remove">
+          <a>Supprimer Le panier</a>
+        </Link>
       </button>
     </Layout>
   );
